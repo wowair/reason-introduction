@@ -1,0 +1,26 @@
+
+module StringSet = Set.Make({
+  type t = string;
+  let compare = Pervasives.compare;
+});
+
+Make: (Ord: OrderedType) => S with type elt = Ord.t;
+
+let set1 = StringSet.(empty |> add("a") |> add("b") |> add("c"));
+let set2 = StringSet.of_list(["b", "c", "d"]);
+
+module StringSet = Set.Make(String);
+
+module SeatType = {
+    type t = {
+      serviceTypeName: ServiceModels.SeatMap.SeatType.t,
+      price: float,
+    };
+    let equal = (s1, s2) =>
+      s1.serviceTypeName == s2.serviceTypeName && s1.price == s2.price;
+    let compare = (s1, s2) => compare(s2.price, s1.price);
+  };
+  module SeatTypeSet = Set.Make(SeatType);
+
+
+

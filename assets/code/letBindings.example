@@ -1,0 +1,5 @@
+let message: string = "What's up doc?";
+let message = "What's up doc?";
+
+message = "the sky";
+Error: The value message is not an instance variable

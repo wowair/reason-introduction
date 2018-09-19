@@ -1,0 +1,11 @@
+type passenger = {
+    personOrgId: int,
+    firstName: string,
+    lastName: string
+};
+
+let primaryPax = {
+  personOrgId: 3023,
+  firstName: "Flying",
+  lastName: "McFlyperson"
+};

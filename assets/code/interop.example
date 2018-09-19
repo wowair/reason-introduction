@@ -1,0 +1,9 @@
+
+[@bs.module "query-string"] external parse: string => Js.Dict.t(string) = "";
+
+[@bs.module "query-string"]
+external stringify: Js.Dict.t(string) => string = "";
+
+[@bs.module "react-native-linear-gradient"]
+external linearGradient: ReasonReact.reactClass = "default";
+

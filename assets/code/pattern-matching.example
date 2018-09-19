@@ -1,0 +1,21 @@
+type passenger =
+  | Adult(int)
+  | Child(int)
+  | Infant(int)
+  
+let passengerCountText: string = 
+    (passenger: passenger) => 
+      switch (passenger) {
+        | Adult(count) => 
+              "We have " 
+              ++ string_of_int(count) ++
+              " adult/s on this flight"
+        | Child(count) => 
+              "We have " 
+              ++ string_of_int(count) ++ 
+              " child/ren on this flight"
+        | Infant(count) => 
+              "We have "
+              ++ " 
+              infant/s on this flight"
+}

@@ -1,0 +1,27 @@
+[@bs.deriving jsConverter]
+type person = {
+  age: int,
+  name: string,
+};
+
+let joe: person = {
+  age: 22,
+  name: "Joseph"
+};
+
+joe |> Js.log 
+// [22,"Joseph"]
+
+joe |> personToJs |> Js.log
+// {"age":22,"name":"Joseph"}
+
+let joe2 = {
+  "name": "Joseph",
+  "age": 22
+};
+
+joe2 |> Js.log
+// {"name":"Joseph","age":22}
+
+joe2 |> personFromJs |> Js.log 
+// [22,"Joseph"]

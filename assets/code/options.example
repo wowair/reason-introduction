@@ -1,0 +1,25 @@
+type seat = {
+    row: int,
+    letter: string,
+};
+
+type passenger = {
+    firstName: string,
+    lastName: string,
+    seat: Some(seat)
+};
+
+let passengerWithSeat = {
+    firstName: "Flyer",
+    lastName: "McFlyperson",
+    seat: Some(seat)
+}
+
+let seatString = (seat: option(seat)) =>
+    switch (seat) {
+        | Some(seat) => string_of_int(seat.row) ++ seat.letter
+        | None => ""
+}
+
+let seatString = (seat: option(seat)) => 
+    seat->Belt.Option.getWithDefault("")

@@ -1,0 +1,33 @@
+
+let seatString = (seat: option(seat)) => 
+    seat->Belt.Option.getWithDefault("")
+
+let intOption = Some(3);
+let squaredIntOption = 
+    intOption->Belt.Option.map((x) => x * x); 
+
+let f = (x: float) =>
+  if (x >= 0.0) {
+    Some(sqrt(x));
+  } else {
+    None;
+  };
+
+flatMap(Some(4.0), f) == Some(2.0);
+
+flatMap(Some(-4.0), f) == None;
+
+flatMap(None, f) == None;
+
+let removeAt = (n: int, list: list('a)) =>
+  switch Belt.List.((take(list, n), drop(list, n + 1))) {
+  | (Some(list1), Some(list2)) => List.concat([list1, list2])
+  | _ => raise(Not_found)
+  };
+
+    
+let removeAt: Some(list('a)) = 
+    (n: int, list: list('a)) => ...
+
+
+

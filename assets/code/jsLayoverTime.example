@@ -1,0 +1,35 @@
+export const getLayoverInfo = legsInfo => {
+  const layoverTimes =
+    legsInfo && legsInfo.size > 1
+      ? legsInfo.reduce((layoverObject, leg) => {
+          if (layoverObject.size > 0) {
+            return layoverObject.set(
+              'departureTime',
+              moment.utc(leg.get('departureTime', ''))
+            );
+          }
+          return layoverObject
+            .set('arrivalTime', moment.utc(leg.get('arrivalTime', '')))
+            .set('cityCode', leg.get('destination', ''));
+        }, Map())
+      : null;
+
+  if (layoverTimes) {
+    const duration = moment
+      .duration(
+        layoverTimes
+          .get('departureTime', '')
+          .diff(layoverTimes.get('arrivalTime', ''))
+      )
+      .asMinutes();
+
+    return layoverTimes.set(
+      'duration',
+      fromJS({
+        hours: Math.floor(duration / 60),
+        minutes: Math.floor(duration % 60),
+      })
+    );
+  }
+  return null;
+};

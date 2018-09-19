@@ -1,0 +1,13 @@
+type passenger =
+  | Adult
+  | Child
+  | Infant
+
+type passenger = [ `Adult  | `Child  | `Infant ]
+
+type passenger =
+  | Adult(int)
+  | Child(int)
+  | Infant(int)
+
+

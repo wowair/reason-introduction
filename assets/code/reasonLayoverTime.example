@@ -1,0 +1,14 @@
+let floatIntString = (num: float) : string => string_of_int(int_of_float(num));
+
+let layoverDuration = (flight: Flight.t, timeUnit) : string => {
+  let diff =
+    switch flight.legDetails {
+    | [leg1, leg2] => MomentRe.diff(leg2.departureTime, leg1.arrivalTime, `minutes)
+    | [_] => 0.
+    | _ => raise(NoLegsOnFlight("This shouldn't happen, a flight should have at least one leg"))
+    };
+  switch timeUnit {
+  | `hours => floatIntString(diff /. 60.)
+  | `minutes => floatIntString(mod_float(diff, 60.))
+  }
+};

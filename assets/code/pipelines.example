@@ -1,0 +1,30 @@
+let hasSeatOnReservation = 
+    (passenger: Passenger.t) =>
+        passenger.flights
+        |> FlightUtils.flightLegs
+        |> FlightLegUtils.paidSeats
+        |> ListUtils.isEmpty == false;
+
+let add = (x, y) => x + y;
+
+let addAsX = (x) => x |> add(_,2);
+let addAsY = (y) => y |> add(2,_);
+
+validateAge(getAge(parseData(person)))
+
+person
+  ->parseData
+  ->getAge
+  ->validateAge
+
+const result = [1, 2, 3]
+    .map(a => a + 1)
+    .filter(a => a % 2 === 0);
+
+let result = [|1, 2, 3|]
+  ->map(a => a + 1)
+  ->filter(a => a mod 2 === 0);
+
+
+  
+
