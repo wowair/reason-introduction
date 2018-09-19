@@ -17,3 +17,5 @@ Open a browser and hit [http://localhost:3000](http://localhost:3000), and we ar
 Building the dist version of the project is as easy as running `npm run build`
 
 If you want to deploy the slideshow to surge, run `npm run deploy`
+
+The current slide build can be found online at: http://uppity-territory.surge.sh/
